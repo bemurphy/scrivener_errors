@@ -36,8 +36,8 @@ class ScrivenerErrors
   end
 
   def error_string(att, error)
-    att = att.to_s.tr('_', ' ')
-    failure   = MESSAGES.fetch(error, 'is invalid')
+    att     = att.to_s.tr('_', ' ')
+    failure = MESSAGES.fetch(error, 'is invalid')
 
     [att, failure].join(' ')
   end
