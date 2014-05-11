@@ -47,6 +47,13 @@ if !filter.valid?
 end
 ```
 
+You can also get a string of comma joined errors for a specific attribute.
+It does not include the attribute name in this case.
+
+```ruby
+scrivener_errors[:email] # => "is too short, is not an email"
+```
+
 Notes
 -----
 
