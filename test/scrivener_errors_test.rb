@@ -71,6 +71,14 @@ scope do
       "has invalid length, is invalid",
       ScrivenerErrors.new(filter)[:password])
   end
+
+  test "returning nil when an attribute has no errors" do
+    filter = SignUp.new(email: 'john@example.com',
+                        password: ' x',
+                        password_confirmation: 'y')
+
+    assert_equal(nil, ScrivenerErrors.new(filter)[:email])
+  end
 end
 
 scope do

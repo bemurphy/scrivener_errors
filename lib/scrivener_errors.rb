@@ -23,7 +23,9 @@ class ScrivenerErrors
   end
 
   def [](att)
-    if (errors = scrivener.errors[att.to_sym])
+    errors = scrivener.errors[att.to_sym]
+
+    if errors.length > 0
       errors.map { |e| lookup(e) }.join(', ')
     end
   end
