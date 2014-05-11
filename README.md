@@ -36,6 +36,7 @@ Usage
 
 ```ruby
 # Setup the plugin for Cuba
+require "scrivener_errors"
 Cuba.plugin ScrivenerErrors::Helpers
 
 # Inside a Cuba action
