@@ -11,6 +11,8 @@ class SignUp < Scrivener
       assert_length :password, (8..99)
       assert(password == password_confirmation,
              [:password_confirmation, :not_confirmed])
+
+      assert_format :password, /^[\S]+/
     end
   end
 end
@@ -54,6 +56,20 @@ scope do
       "Email is not an email, password confirmation is invalid",
       ScrivenerErrors.new(filter).message
     )
+  end
+
+  test "an error string for a single attribute" do
+    filter = SignUp.new(email: 'john',
+                        password: ' x',
+                        password_confirmation: 'y')
+
+    assert_equal(
+      "is not an email",
+      ScrivenerErrors.new(filter)[:email])
+
+    assert_equal(
+      "has invalid length, is invalid",
+      ScrivenerErrors.new(filter)[:password])
   end
 end
 

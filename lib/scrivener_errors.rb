@@ -22,6 +22,12 @@ class ScrivenerErrors
     end
   end
 
+  def [](att)
+    if (errors = scrivener.errors[att.to_sym])
+      errors.map { |e| lookup(e) }.join(', ')
+    end
+  end
+
   def message
     messages.join(', ').capitalize
   end
@@ -36,9 +42,11 @@ class ScrivenerErrors
 
   def error_string(att, error)
     att     = att.to_s.tr('_', ' ')
-    failure = MESSAGES.fetch(error, 'is invalid')
+    [att, lookup(error)].join(' ')
+  end
 
-    [att, failure].join(' ')
+  def lookup(key)
+    MESSAGES.fetch(key, 'is invalid')
   end
 
   module Helpers
