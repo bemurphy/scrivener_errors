@@ -41,7 +41,7 @@ Cuba.plugin ScrivenerErrors::Helpers
 # Inside a Cuba action
 filter = Signup.new(req.params)
 if !filter.valid?
-  session[:error] = filter_errors(filter)
+  session[:error] = filter_error(filter)
   res.redirect "/some_form"
 end
 ```

@@ -68,7 +68,7 @@ scope do
 
     assert_equal(
       "Email is not an email, password confirmation is invalid",
-      object.filter_errors(filter)
+      object.filter_error(filter)
     )
   end
 end

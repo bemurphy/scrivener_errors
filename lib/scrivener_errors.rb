@@ -43,7 +43,7 @@ class ScrivenerErrors
   end
 
   module Helpers
-    def filter_errors(scrivener)
+    def filter_error(scrivener)
       ScrivenerErrors.new(scrivener).to_s
     end
   end
