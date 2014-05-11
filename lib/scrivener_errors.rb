@@ -9,7 +9,7 @@ class ScrivenerErrors
     :not_present  => "can't be blank",
     :not_url      => "is not a url",
     :too_short    => "is too short"
-  }.freeze
+  }
 
   def initialize(scrivener)
     @scrivener = scrivener
