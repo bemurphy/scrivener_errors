@@ -20,7 +20,7 @@ Email is not an email, password can't be blank
 ```
 
 ScrivenerErrors will present these error hashes as a string
-or list of errors message for use in failure notices or
+or list of error messages for use in failure notices or
 form errors.
 
 This also comes with a small plugin for [Cuba](http://cuba.is/)
