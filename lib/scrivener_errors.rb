@@ -22,10 +22,10 @@ class ScrivenerErrors
     end
   end
 
-  def to_s
+  def message
     messages.join(', ').capitalize
   end
-  alias :message :to_s
+  alias :to_s :message
 
   def messages
     scrivener.errors.inject([]) do |memo, error|
