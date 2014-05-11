@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = "scrivener_errors"
-  s.version     = "0.0.4"
+  s.version     = "0.0.5"
   s.summary     = "Basic error messages for Scrivener filters"
   s.description = s.summary
   s.authors     = ["Brendon Murphy"]
