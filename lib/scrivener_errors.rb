@@ -28,10 +28,9 @@ class ScrivenerErrors
   alias :to_s :message
 
   def messages
-    scrivener.errors.inject([]) do |memo, error|
+    scrivener.errors.each_with_object([]) do |error, collection|
       att = error[0]
-      memo.concat error[1].map {|e| error_string(att, e) }
-      memo
+      collection.concat error[1].map {|e| error_string(att, e) }
     end
   end
 
