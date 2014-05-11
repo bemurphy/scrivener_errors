@@ -1,6 +1,4 @@
 class ScrivenerErrors
-  VERSION = "0.0.1"
-
   attr_reader :scrivener
 
   MESSAGES = {

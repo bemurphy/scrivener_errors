@@ -1,10 +1,6 @@
-lib = File.expand_path('../lib', __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'scrivener_errors'
-
 Gem::Specification.new do |s|
   s.name        = "scrivener_errors"
-  s.version     = ScrivenerErrors::VERSION
+  s.version     = "0.0.2"
   s.summary     = "Basic error messages for Scrivener filters"
   s.description = s.summary
   s.authors     = ["Brendon Murphy"]
@@ -20,7 +16,6 @@ Gem::Specification.new do |s|
     "*.gemspec",
     "test/**/*.rb"
   ]
-  s.require_paths = ["lib"]
 
   s.add_development_dependency "cutest", "~> 1.2"
   s.add_development_dependency "scrivener", "~> 0.2"
