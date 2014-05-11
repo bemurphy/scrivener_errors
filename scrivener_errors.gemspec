@@ -22,6 +22,6 @@ Gem::Specification.new do |s|
   ]
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "cutest"
-  s.add_development_dependency "scrivener"
+  s.add_development_dependency "cutest", "~> 1.2"
+  s.add_development_dependency "scrivener", "~> 0.2"
 end
