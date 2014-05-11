@@ -7,7 +7,7 @@ filters.
 Description
 -----------
 
-Scrivener errors are returned has a hash with a format like:
+Scrivener errors are returned as a hash with a format like:
 
 ```ruby
 {:email => [:not_email], :password => [:not_present]}
