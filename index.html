@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Scrivener errors by bemurphy</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Scrivener errors</h1>
+        <p>Basic error messages for Scrivener filters</p>
+
+        <p class="view"><a href="https://github.com/bemurphy/scrivener_errors">View the Project on GitHub <small>bemurphy/scrivener_errors</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/bemurphy/scrivener_errors/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/bemurphy/scrivener_errors/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/bemurphy/scrivener_errors">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="scrivener-errors" class="anchor" href="#scrivener-errors"><span class="octicon octicon-link"></span></a>Scrivener Errors</h1>
+
+<p>Basic error messages for <a href="https://github.com/soveran/scrivener">Scrivener</a>
+filters.</p>
+
+<h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>Scrivener errors are returned as a hash with a format like:</p>
+
+<div class="highlight highlight-ruby"><pre><span class="p">{</span><span class="ss">:email</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:not_email</span><span class="o">]</span><span class="p">,</span> <span class="ss">:password</span> <span class="o">=&gt;</span> <span class="o">[</span><span class="ss">:not_present</span><span class="o">]</span><span class="p">}</span>
+</pre></div>
+
+<p>This can be represented instead as a string like:</p>
+
+<pre><code>Email is not an email, password can't be blank
+</code></pre>
+
+<p>ScrivenerErrors will present these error hashes as a string
+or list of errors message for use in failure notices or
+form errors.</p>
+
+<p>This also comes with a small plugin for <a href="http://cuba.is/">Cuba</a>
+to get the error message easily, <code>ScrivenerErrors::Helpers</code>.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<pre><code>$ gem install scrivener_errors
+</code></pre>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight highlight-ruby"><pre><span class="c1"># Setup the plugin for Cuba</span>
+<span class="no">Cuba</span><span class="o">.</span><span class="n">plugin</span> <span class="no">ScrivenerErrors</span><span class="o">::</span><span class="no">Helpers</span>
+
+<span class="c1"># Inside a Cuba action</span>
+<span class="n">filter</span> <span class="o">=</span> <span class="no">Signup</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">params</span><span class="p">)</span>
+<span class="k">if</span> <span class="o">!</span><span class="n">filter</span><span class="o">.</span><span class="n">valid?</span>
+  <span class="n">session</span><span class="o">[</span><span class="ss">:error</span><span class="o">]</span> <span class="o">=</span> <span class="n">filter_errors</span><span class="p">(</span><span class="n">filter</span><span class="p">)</span>
+  <span class="n">res</span><span class="o">.</span><span class="n">redirect</span> <span class="s2">"/some_form"</span>
+<span class="k">end</span>
+</pre></div>
+
+<h2>
+<a name="notes" class="anchor" href="#notes"><span class="octicon octicon-link"></span></a>Notes</h2>
+
+<p>Currently there's no I18n in use.  The error messages are
+from a small English mapped hash at the moment.</p>
+
+<p>An error type that is not found will be represented like
+"Password is invalid" by default.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/bemurphy">bemurphy</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
