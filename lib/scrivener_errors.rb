@@ -43,7 +43,7 @@ class ScrivenerErrors
   end
 
   def error_string(att, error)
-    att     = att.to_s.tr('_', ' ')
+    att = att.to_s.tr('_', ' ')
     [att, lookup(error)].join(' ')
   end
 
